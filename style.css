@@ -1,0 +1,184 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+    background-color: #3e3e3e;
+    color: #ffffff;
+    overflow-x: hidden;
+}
+
+/* Global */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    overflow: hidden;
+    width: 80%;
+    margin: auto;
+}
+
+/* Header */
+#banner {
+    height: 576px;
+    background: url(../img/Autumn.png) no-repeat center 0;
+}
+
+/* Main */
+#nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 8vh;
+    background-color: #313131;
+    font-family: 'Poppins', sans-serif;
+    transition: .3s;
+}
+
+#nav.fixed {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+#nav.fixed + #content {
+    margin-top: 100px;
+}
+
+.logo {
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-size: 20px;
+    margin-left: 10%;
+}
+
+#menu {
+    display: flex;
+    justify-content: space-around;
+    width: auto;
+    height: 8vh;
+    margin-right: 10%;
+}
+
+#menu li {
+    list-style: none;
+    transition: .2s;
+}
+
+#menu li a {
+    display: inline-block;
+    line-height: 8vh;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 0 20px;
+}
+
+#menu li.active {
+    font-weight: bold;
+}
+
+#menu li.active,
+#menu li:hover {
+    background-color: #3e3e3e;
+}
+
+.burger {
+    display: none;
+    margin-right: 10%;
+}
+
+.burger div {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 5px;
+    transition: all .3s ease;
+}
+
+#content {
+    margin: 30px 0;
+}
+
+/* Footer */
+footer {
+    background: #313131;
+    color: #ffffff;
+    line-height: 40px;
+    padding: 10px 0;
+    text-align: center;
+}
+
+/* @media */
+@media screen and (max-width:768px) {
+    #menu {
+        position: absolute;
+        top: calc(576px + 8vh);
+        right: 0;
+        height: 92vh;
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: #313131;
+        margin: 0;
+        justify-content: normal;
+        transform: translateX(100%);
+        transition: transform .5s ease-in;
+    }
+
+    #nav.fixed #menu {
+        top: 8vh;
+    }
+
+    #menu li {
+        opacity: 0;
+        background-color: black;
+    }
+
+    #menu li.active,
+    #menu li:hover {
+        background-color: black;
+    }
+
+    #menu li a {
+        text-align: center;
+        padding: 40px 0;
+    }
+
+    .burger {
+        display: block;
+        cursor: pointer;
+    }
+}
+
+#menu.menu-active {
+    transform: translateX(0%);
+}
+
+@keyframes menuLinkFade {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+.toggle .line1 {
+    transform: rotate(-45deg) translate(-5px,6px);
+}
+.toggle .line2 {
+    opacity: 0;
+}
+.toggle .line3 {
+    transform: rotate(45deg) translate(-5px,-6px);
+}
